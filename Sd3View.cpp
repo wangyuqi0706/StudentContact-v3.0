@@ -6,6 +6,7 @@
 #include "DataDlg.h"
 #include "Sd3Doc.h"
 #include "Sd3View.h"
+#include"CFindDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -222,14 +223,12 @@ int CSd3View::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CListView::OnCreate(lpCreateStruct) == -1)
 		return -1;
-	m_list.SetImageList(&m_iList, LVSIL_SMALL);
 	m_list.ModifyStyle(0, LVS_REPORT | LVS_SHOWSELALWAYS);
 	m_list.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 	m_list.InsertColumn(0, "姓名", 0, 200);
 	m_list.InsertColumn(1, "地址", 0, 200);
 	m_list.InsertColumn(2, "电话", 0, 200);
 	m_list.InsertColumn(3, "邮编", 0, 200);
-
 	return 0;
 }
 
@@ -237,10 +236,7 @@ int CSd3View::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CSd3View::OnEditFind()
 {
 	// TODO: 在此添加命令处理程序代码
-	CDataDlg dlg;
+	CFindDlg dlg;
 	if (IDCANCEL == dlg.DoModal())
 		return;
-	CString str = dlg.m_name;
-
-	
 }

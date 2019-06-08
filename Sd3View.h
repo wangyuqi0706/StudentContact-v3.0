@@ -19,6 +19,7 @@ protected: // create from serialization only
 // Attributes
 public:
 	CSd3Doc* GetDocument();
+	//friend CFindDlg;
 
 // Operations
 public:

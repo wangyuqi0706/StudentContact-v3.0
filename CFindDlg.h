@@ -24,4 +24,8 @@ public:
 	CListCtrl m_list;
 	CString m_name;
 //	afx_msg void OnLvnItemchangedFind(NMHDR* pNMHDR, LRESULT* pResult);
+	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedCancel();
 };
