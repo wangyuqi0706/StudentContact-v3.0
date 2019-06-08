@@ -105,3 +105,11 @@ void CMainFrame::Dump(CDumpContext& dc) const
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame message handlers
 
+
+
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	SetTitle("学生通讯录管理系统");
+	return CFrameWnd::OnCreateClient(lpcs, pContext);
+}
