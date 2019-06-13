@@ -143,7 +143,6 @@ void CSd3View::OnEditDel()
 		m_list.DeleteItem(nSel);
 		GetDocument()->SetModifiedFlag();
 	}
-
 }
 
 void CSd3View::OnEditMod()
@@ -225,18 +224,17 @@ int CSd3View::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	m_list.ModifyStyle(0, LVS_REPORT | LVS_SHOWSELALWAYS);
 	m_list.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
-	m_list.InsertColumn(0, "姓名", 0, 200);
-	m_list.InsertColumn(1, "地址", 0, 200);
-	m_list.InsertColumn(2, "电话", 0, 200);
-	m_list.InsertColumn(3, "邮编", 0, 200);
+	m_list.InsertColumn(0, "姓名", 0, 300);
+	m_list.InsertColumn(1, "地址", 0, 400);
+	m_list.InsertColumn(2, "电话", 0, 300);
+	m_list.InsertColumn(3, "邮编", 0, 300);
 	return 0;
 }
 
 
 void CSd3View::OnEditFind()
 {
-	// TODO: 在此添加命令处理程序代码
-	CFindDlg dlg;
-	if (IDCANCEL == dlg.DoModal())
+	CFindDlg dlg;//创建查找对话框
+	if (IDCANCEL == dlg.DoModal())//用户点击取消则退出函数
 		return;
 }
