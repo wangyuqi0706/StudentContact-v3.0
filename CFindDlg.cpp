@@ -62,7 +62,7 @@ BOOL CFindDlg::OnInitDialog()
 void CFindDlg::OnBnClickedButton1()
 {
 	m_list.DeleteAllItems();//先将列表清空
-	UpdateData();//将对话框中内容更新到对应的变量m_name中
+	UpdateData(TRUE);//将对话框中内容更新到对应的变量m_name中
 	CString str = m_name;
 	CMainFrame* pMain = (CMainFrame*)AfxGetApp()-> m_pMainWnd;
 	CSd3View* pView = (CSd3View*)pMain-> GetActiveView();//获取到视图类的指针
@@ -74,21 +74,20 @@ void CFindDlg::OnBnClickedButton1()
 		bool isFound = false;//判断是否找到的布尔变量
 		for (int i = 0; i <n; i++)//遍历原列表中所有信息
 		{
-			int j = 0;
+			int j = 0;//新列表行数
 			if (str.Compare(pView->m_list.GetItemText(i, 0))==0)//依次比较姓名
 			{
-				isFound = true;
+				isFound = true;//将标记设置为true表示找到了至少一个
 				m_list.InsertItem(j, pView->m_list.GetItemText(i, 0));
 				m_list.SetItemText(j, 1, pView->m_list.GetItemText(i, 1));
 				m_list.SetItemText(j, 2, pView->m_list.GetItemText(i, 2));
 				m_list.SetItemText(j, 3, pView->m_list.GetItemText(i, 3));
 				++j;//将姓名匹配的联系人信息全部显示在新列表中
-			}
-			
+			}			
 		}
 		if (isFound == false)
 			MessageBox("没有找到该同学");//若没有找到则弹出提示
-		UpdateData();//将信息显示在界面中
+		UpdateData(FALSE);//将信息显示在界面中
 	}
 }
 
